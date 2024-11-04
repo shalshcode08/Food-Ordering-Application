@@ -2,7 +2,7 @@ import landing from '../assets/landing.png'
 import appDownload from '../assets/appDownload.png'
 
 const HomePage = () => {
-  return (
+return (
     <div className="flex flex-col gap-12">
         <div className="bg-white rounded-lg shadow-md py-8 px-3 flex flex-col gap-5 text-center -mt-16">
             <h1 className="text-5xl font-bold tracking-tight text-orange-600">
@@ -23,7 +23,7 @@ const HomePage = () => {
             </div>  
         </div>
     </div>
-  )
+)
 }
 
 export default HomePage
