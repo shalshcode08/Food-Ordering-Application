@@ -12,12 +12,12 @@ export const useCreateMyUser = () => {
     const{getAccessTokenSilently} = useAuth0();
 
     const createMyUserRequest = async(user : CreateUserRequest) => {
-        const accessToken = getAccessTokenSilently();
+        const accessToken = await getAccessTokenSilently();
         const response = await fetch(`${API_BASE_URL}/api/my/user`, {
             method : "POST",
             headers : {
-                "Content-Type" : "application/json",
                 Authorization : `Bearer ${accessToken}`,
+                "Content-Type" : "application/json",
             },
             body : JSON.stringify(user)
         })
