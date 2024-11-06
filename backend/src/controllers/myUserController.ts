@@ -3,12 +3,13 @@ import User from "../models/user";
 
 const getCurrentUser = async(req: Request, res: Response) => {
     try{
-        const currentUser = User.findOne({_id : req.userId})
+        const currentUser = await User.findOne({_id : req.userId})
 
         if(!currentUser){
             res.status(404).json({
                 message : "User not found"
             })
+            return;
         }
 
         res.json(currentUser);
