@@ -9,7 +9,7 @@ const createCurrentUser = async (req: Request, res: Response) => {
         const { auth0Id } = req.body;
         const existingUser = await User.findOne({ auth0Id });
 
-        if(existingUser){
+        if (existingUser) {
             res.status(200).send();
         }
 
@@ -26,31 +26,29 @@ const createCurrentUser = async (req: Request, res: Response) => {
     }
 };
 
-const updateCurrentUser = async(req : Request, res : Response) => {
+const updateCurrentUser = async (req: Request, res: Response) => {
     try {
-        const {name, addressLine1, country, city } = req.body;
+        const { name, addressLine1, country, city } = req.body;
         const user = await User.findById(req.userId);
 
-        if(!user){
-            return res.status(404).json({
-                message : "User not found"
-            });
+        if (!user) {
+            res.status(404).json({ message: "User not found" });
+            return;
         }
+
         user.name = name;
         user.addressLine1 = addressLine1;
-        user.country = country;
         user.city = city;
+        user.country = country;
 
         await user.save();
-        res.send(user);
 
+        res.send(user);
     } catch (error) {
         console.log(error);
-        res.status(500).json({
-            message : "Error updating error"
-        });
+        res.status(500).json({ message: "Error updating user" });
     }
-}
+};
 
 export default {
     createCurrentUser,
