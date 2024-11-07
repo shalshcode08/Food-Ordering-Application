@@ -12,8 +12,8 @@ import { useFormContext } from "react-hook-form";
 const DetailsSection = () => {
     const { control } = useFormContext();
     return (
-        <div className="space-y-2">
-            <div>
+        <div className="space-y-4">
+            <div className="space-y-2">
                 <h2 className="text-2xl font-bold">Details</h2>
                 <FormDescription>
                     Enter the details about your restaurant
@@ -78,7 +78,7 @@ const DetailsSection = () => {
                 name="estimatedDeliveryTime"
                 render={({ field }) => (
                     <FormItem className="max-w-[25%]">
-                        <FormLabel>Estimated Delivery Time (minutes))</FormLabel>
+                        <FormLabel>Estimated Delivery Time (minutes)</FormLabel>
                         <FormControl>
                             <Input {...field} className="bg-white" placeholder="30"/>
                         </FormControl>

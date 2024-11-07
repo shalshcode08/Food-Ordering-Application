@@ -3,6 +3,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import {z} from 'zod'
 import DetailsSection from './DetailsSection';
+import { Separator } from '@/components/ui/separator';
+import CuisinesSection from './CusinesSection';
+import MenuSection from './MenuSection';
+import ImageSection from './ImageSection';
+import LoadingButton from '@/components/LoadingButton';
+import { Button } from '@/components/ui/button';
 
 const formSchema = z.object({
     restaurantName : z.string({
@@ -22,7 +28,7 @@ const formSchema = z.object({
         required_error : "Estimated Delivery Time is required",
         invalid_type_error : "must be a valid number",
     }),
-    cusines : z.array(z.string()).nonempty({
+    cuisines : z.array(z.string()).nonempty({
         message : "please select at least one item"
     }),
     menuItems : z.array(z.object({
@@ -43,7 +49,7 @@ const ManageRestaurantFrom = ({onSave, isLoading} : Props) => {
     const form = useForm<restaurantFormData>({
         resolver : zodResolver(formSchema),
         defaultValues : {
-            cusines : [],
+            cuisines : [],
             menuItems : [{name : "", price: 0}]
         }
     })
@@ -56,6 +62,13 @@ const ManageRestaurantFrom = ({onSave, isLoading} : Props) => {
     <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8 bg-gray-50 p-10 rounded-lg'>
             <DetailsSection />
+            <Separator/>
+            <CuisinesSection/>
+            <Separator/>
+            <MenuSection/>
+            <Separator/>
+            <ImageSection/>
+            {isLoading ? <LoadingButton/> : <Button type='submit'>Submit</Button>}
         </form>
     </Form>
   )
