@@ -10,7 +10,7 @@ return (
             </h1>
             <span className="text-xl">Food is just click away</span>
         </div>
-        <div className="grid md:grid-cols-2 gap-5 py-10">
+        <div className="grid md:grid-cols-2 gap-5 py-20">
             <img src={landing} />
             <div className='flex flex-col items-center justify-center gap-4 text-center'>
                 <span className='font-bold text-3xl tracking-tighter'>
