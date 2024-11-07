@@ -27,7 +27,13 @@ const UsernameMenu = () => {
         <Separator className="my-1" />
         <DropdownMenuItem className="p-2 rounded-md hover:bg-gray-100 transition-all duration-150">
           <Button
-            onClick={() => logout()}
+            onClick={() => logout(
+              {
+                logoutParams : {
+                  returnTo : window.location.origin
+                }
+              }
+            )}
             className="w-full font-semibold bg-orange-500 text-white hover:bg-orange-600 transition-all duration-150"
           >
             Log Out
