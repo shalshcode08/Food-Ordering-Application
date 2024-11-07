@@ -9,4 +9,5 @@ const router = express.Router();
 router.post('/', jwtCheck , myUserController.createCurrentUser);
 router.put('/', jwtCheck, jwtParse, validateMyUserRequest, myUserController.updateCurrentUser);
 router.get('/',jwtCheck,jwtParse, myUserController.getCurrentUser);
+
 export default router;

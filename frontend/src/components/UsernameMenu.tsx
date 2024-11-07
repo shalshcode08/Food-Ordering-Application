@@ -19,6 +19,11 @@ const UsernameMenu = () => {
         {user?.given_name || "User"}
       </DropdownMenuTrigger>
       <DropdownMenuContent className="mt-2 min-w-[200px] bg-white border border-gray-200 rounded-lg shadow-lg p-2 animate-fadeIn transition-all duration-200">
+      <DropdownMenuItem className="p-2 rounded-md hover:bg-gray-100 transition-all duration-150">
+          <Link to="/manage-restaurant" className="font-semibold text-gray-700 hover:text-orange-500 block">
+            Manage Restaurant
+          </Link>
+        </DropdownMenuItem>
         <DropdownMenuItem className="p-2 rounded-md hover:bg-gray-100 transition-all duration-150">
           <Link to="/user-profile" className="font-semibold text-gray-700 hover:text-orange-500 block">
             User Profile
