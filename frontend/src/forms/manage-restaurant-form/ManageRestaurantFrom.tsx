@@ -71,7 +71,7 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
       return;
     }
 
-    // price lowest domination of 100 = 100pence == 1GBP
+    // price lowest domination of 100
     const deliveryPriceFormatted = parseInt(
       (restaurant.deliveryPrice / 100).toFixed(2)
     );
@@ -89,6 +89,7 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
 
     form.reset(updatedRestaurant);
   }, [form, restaurant]);
+  
 
   const onSubmit = (formDataJson: RestaurantFormData) => {
     const formData = new FormData();
