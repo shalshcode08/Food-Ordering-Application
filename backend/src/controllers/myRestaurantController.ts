@@ -46,7 +46,7 @@ const createMyRestaurant = async (req: Request, res: Response) => {
     }
 };
   
-
+// update restaurant api //
 const updateMyRestaurant = async(req : Request, res : Response) => {
   try {
     const restaurant = await Restaurant.findOne({

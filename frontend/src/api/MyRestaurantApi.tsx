@@ -79,7 +79,7 @@ export const useUpdateMyRestaurant = () => {
   const {getAccessTokenSilently} = useAuth0();
 
   const updateMyRestaurantRequest = async( restaurantFormData: FormData) : Promise<Restaurant> => {
-    const accessToken = getAccessTokenSilently();
+    const accessToken = await getAccessTokenSilently();
 
     const response = await fetch(`${API_BASE_URL}/api/my/restaurant`, {
       method : "PUT",

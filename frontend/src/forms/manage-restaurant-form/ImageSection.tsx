@@ -25,10 +25,10 @@ const ImageSection = () => {
       </div>
       <div className="flec flex-col gap-10 md:w-[50%]">
         {existingImageUrl && (
-          <AspectRatio ratio={16 / 9}>
+          <AspectRatio ratio={16 / 9} className="mb-4 shadow-sm">
             <img
               src={existingImageUrl}
-              className="rounded-md object-cover h-full w-full shadow-md"
+              className="rounded-md object-cover h-full w-full"
             />
           </AspectRatio>
         )}
