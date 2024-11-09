@@ -29,7 +29,7 @@ const SearchResultsCard = ({restaurant}:Props) => {
             <div className="flex gap-2 flex-col">
                 <div className="flex items-center gap-1 text-green-600">
                     <Clock className="text-green-600"/>
-                    {restaurant.estimatedDeliveyPrice} mins
+                    {restaurant.estimatedDeliveryTime} mins
                 </div>
                 <div className="flex items-center gap-1">
                     <Banknote/>
