@@ -7,7 +7,7 @@ type Props = {
 
 const SearchResultsInfo = ({total, city}:Props) => {
     return(
-        <div className="text-xl font-bold flex flex-col gap-3 justify-between lg:items-center lg:flex-row">
+        <div className="text-xl font-bold flex flex-col gap-3 justify-between lg:items-center lg:flex-row py-4 mt-2">
             <span>
                 {total} Restaurants found in {city}
                 <Link to="/" className="text-sm ml-1 font-semibold underline cursor-pointer text-blue-500">Change Location</Link>
