@@ -1,6 +1,22 @@
 import { Request, Response } from "express";
 import Restaurant from "../models/restaurant";
 
+const getRestaurant = async (req: Request, res: Response) => {
+    try {
+        const restaurantId = req.params.restaurantId;
+
+        const restaurant = await Restaurant.findById(restaurantId);
+        if (!restaurant) {
+            res.status(404).json({ message: "restaurant not found" });
+        }
+
+        res.json(restaurant);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "something went wrong" });
+    }
+};
+
 const searchRestaurant = async (req: Request, res: Response) => {
     try {
         const city = req.params.city;
@@ -15,12 +31,12 @@ const searchRestaurant = async (req: Request, res: Response) => {
         const cityCheck = await Restaurant.countDocuments(query);
         if (cityCheck === 0) {
             res.status(404).json({
-                data : [],
-                pagination : {
-                    total : 0,
-                    page : 1,
-                    pages : 1,
-                }
+                data: [],
+                pagination: {
+                    total: 0,
+                    page: 1,
+                    pages: 1,
+                },
             });
         }
 
@@ -50,19 +66,18 @@ const searchRestaurant = async (req: Request, res: Response) => {
             .lean();
 
         const total = await Restaurant.countDocuments(query);
-        
+
         const response = {
-            data : restaurants,
-            pagination : {
+            data: restaurants,
+            pagination: {
                 total,
                 page,
-                pages : Math.ceil(total/pageSize) // 50 results, pagesize 10, pages = 5
+                pages: Math.ceil(total / pageSize), // 50 results, pagesize 10, pages = 5
             },
-        }
+        };
 
         res.json(response);
-    } 
-    catch (error) {
+    } catch (error) {
         console.log(error);
         res.status(500).json({
             message: "Something went wrong",
@@ -71,5 +86,6 @@ const searchRestaurant = async (req: Request, res: Response) => {
 };
 
 export default {
+    getRestaurant,
     searchRestaurant,
-}
+};
