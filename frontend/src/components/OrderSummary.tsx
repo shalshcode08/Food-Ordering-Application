@@ -16,7 +16,7 @@ const OrderSummary = ({ restaurant, cartItems , removeFromCart}: Props) => {
       return 0;
     }
     const totalInRupees = cartItems.reduce(
-      (total, cartItem) => total + parseInt(cartItem.price) * cartItem.quantity,
+      (total, cartItem) => total + cartItem.price * cartItem.quantity,
       0
     )
     const totalWithDelivery = totalInRupees + restaurant.deliveryPrice;
@@ -25,10 +25,6 @@ const OrderSummary = ({ restaurant, cartItems , removeFromCart}: Props) => {
   return (
     <>
       <CardHeader>
-        <CardTitle className="text-2xl font-bold tracking-tight flex justify-between">
-          <span>Your Order</span>
-          <span>${getTotalCost()}</span>
-        </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-5">
         {cartItems.map((item) => (
@@ -41,7 +37,7 @@ const OrderSummary = ({ restaurant, cartItems , removeFromCart}: Props) => {
             </div>
             <span className="flex items-center gap-1">
               <Trash className="cursor-pointer" color="red" size={20} onClick={()=> removeFromCart(item)}/>
-              ${((parseInt(item.price) * item.quantity) / 100).toFixed(2)}
+              ${((item.price * item.quantity) / 100).toFixed(2)}
             </span>
           </div>
         ))}
@@ -51,6 +47,10 @@ const OrderSummary = ({ restaurant, cartItems , removeFromCart}: Props) => {
           <span>${(restaurant.deliveryPrice / 100).toFixed(2)}</span>
         </div>
         <Separator />
+        <CardTitle className="text-2xl font-bold tracking-tight flex justify-between">
+          <span>Your Order</span>
+          <span>${getTotalCost()}</span>
+        </CardTitle>
       </CardContent>
     </>
   );

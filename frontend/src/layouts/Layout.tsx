@@ -9,7 +9,7 @@ type Props = {
 
 const Layout = ({children, showHero = false} : Props) =>{
     return(
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen min-w-fit">
             <Header />
             {showHero && <Hero />}
             <div className="container mx-auto flex-1 py-5">

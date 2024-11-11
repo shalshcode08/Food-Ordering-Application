@@ -34,6 +34,7 @@ const createCurrentUser = async (req: Request, res: Response) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Error creating user" });
+        return;
     }
 };
 
@@ -58,6 +59,7 @@ const updateCurrentUser = async (req: Request, res: Response) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Error updating user" });
+        return;
     }
 };
 

@@ -8,6 +8,7 @@ const getRestaurant = async (req: Request, res: Response) => {
         const restaurant = await Restaurant.findById(restaurantId);
         if (!restaurant) {
             res.status(404).json({ message: "restaurant not found" });
+            return;
         }
 
         res.json(restaurant);

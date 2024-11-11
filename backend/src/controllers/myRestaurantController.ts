@@ -11,6 +11,7 @@ const getMyRestaurant = async( req: Request, res : Response) => {
       res.status(404).json({
         message : "restaurant not found"
       })
+      return;
     }
     res.json(restaurant);
   } catch (error) {
@@ -43,6 +44,7 @@ const createMyRestaurant = async (req: Request, res: Response) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Something went wrong" });
+        return;
     }
 };
   
@@ -78,7 +80,8 @@ const updateMyRestaurant = async(req : Request, res : Response) => {
 
   } catch (error) {
     console.log(error);
-    res.status(500).json("Unable to update restaurant")
+    res.status(500).json("Unable to update restaurant");
+    return;
   }
 }
 
