@@ -39,6 +39,7 @@ const searchRestaurant = async (req: Request, res: Response) => {
                     pages: 1,
                 },
             });
+            return;
         }
 
         if (selectedCuisines) {
@@ -83,6 +84,7 @@ const searchRestaurant = async (req: Request, res: Response) => {
         res.status(500).json({
             message: "Something went wrong",
         });
+        return;
     }
 };
 
