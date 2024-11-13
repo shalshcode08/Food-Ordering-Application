@@ -26,15 +26,16 @@ const CheckOutButton = ({onCheckout, disabled, isLoading}: Props) => {
     })
   }
 
+  if(isAuthLoading || isLoading){
+    return <LoadingButton/>
+  }
+
   if(!isAuthenticated || !currentUser){
     return <Button onClick={onLogin} className="bg-orange-500 flex-1">
         Login to Checkout
     </Button>
   }
 
-  if(isAuthLoading){
-    return <LoadingButton/>
-  }
 
   return(
     <Dialog>

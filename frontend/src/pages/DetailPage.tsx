@@ -109,7 +109,7 @@ const DetailPage = () => {
     }
 
     return (
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10 px-5">
             <AspectRatio ratio={16 / 5}>
                 <img
                     src={restaurant.imageUrl}
