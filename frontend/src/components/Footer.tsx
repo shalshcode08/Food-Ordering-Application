@@ -1,3 +1,4 @@
+import { GitHubLogoIcon } from "@radix-ui/react-icons"
 
 const Footer = () => {
   return (
@@ -6,9 +7,10 @@ const Footer = () => {
             <span className="text-2xl text-white font-bold tracking-tight">
                 Eats.com
             </span>
-            <span className="text-white tracking-tight font-light">
-                <p>Made with love by Somu</p>
-            </span>
+            <div className="text-white tracking-tight font-light flex justify-evenly items-center">
+                <p>Made with 🧡 by Somu</p>
+                <a href="https://github.com/shalshcode08/Food-Ordering-Application" target="#"><GitHubLogoIcon className="ml-4 size-5"></GitHubLogoIcon></a>
+            </div>
         </div>
     </div>
   )
